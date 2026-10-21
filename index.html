@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="ELEMENT X؛ جدول تناوبی تعاملی و یادگیری شیمی به زبان ساده">
+  <title>ELEMENT X | دنیای عناصر</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ELEMENT X">
+      <span class="brand-mark">X</span>
+      <span><b>ELEMENT <em>X</em></b><small>دنیای عناصر، به زبان ساده</small></span>
+    </a>
+    <div class="header-actions">
+      <button id="langBtn" class="ghost-btn" type="button" aria-label="تغییر زبان">EN</button>
+      <button id="installBtn" class="primary-btn hidden" type="button">نصب اپ</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">آزمایشگاه یادگیری شیمی</span></div>
+      <h1 data-i18n="headline">جهان از <span>عناصر</span> ساخته شده.</h1>
+      <p data-i18n="intro">عناصر را کشف کن، ساختار اتم را بشناس و با آزمون‌های کوتاه شیمی را بازی‌وار یاد بگیر.</p>
+      <div class="hero-stats">
+        <div><strong>118</strong><span data-i18n="elements">عنصر</span></div>
+        <div><strong id="xpCount">0</strong><span data-i18n="xp">امتیاز XP</span></div>
+        <div><strong id="learnedCount">0</strong><span data-i18n="learned">عنصر دیده‌شده</span></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="بخش‌های اپ">
+      <button class="tab active" data-tab="table" data-i18n="tabTable">جدول تناوبی</button>
+      <button class="tab" data-tab="atom" data-i18n="tabAtom">اتم‌شناسی</button>
+      <button class="tab" data-tab="quiz" data-i18n="tabQuiz">آزمون سریع</button>
+    </nav>
+
+    <section id="tablePanel" class="panel active">
+      <div class="section-heading">
+        <div><span class="kicker" data-i18n="explore">کاوش کن</span><h2 data-i18n="periodicTitle">جدول تناوبی</h2></div>
+        <span class="counter" id="resultCount">118 عنصر</span>
+      </div>
+      <label class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="نام، نماد یا عدد اتمی را جست‌وجو کن…" data-i18n-placeholder="searchPlaceholder">
+      </label>
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="all" data-i18n="all">همه</button>
+        <button class="filter" data-filter="metal" data-i18n="metals">فلزها</button>
+        <button class="filter" data-filter="nonmetal" data-i18n="nonmetals">نافلزها</button>
+        <button class="filter" data-filter="noble" data-i18n="noble">گازهای نجیب</button>
+        <button class="filter" data-filter="metalloid" data-i18n="metalloids">شبه‌فلزها</button>
+      </div>
+      <div id="periodicGrid" class="periodic-grid" aria-label="فهرست عناصر"></div>
+      <p class="hint" data-i18n="tableHint">برای دیدن اطلاعات هر عنصر، روی کارت آن بزن.</p>
+    </section>
+
+    <section id="atomPanel" class="panel">
+      <div class="section-heading"><div><span class="kicker" data-i18n="visualLearn">یادگیری تصویری</span><h2 data-i18n="atomTitle">داخل یک اتم</h2></div></div>
+      <div class="atom-card">
+        <div class="atom-visual" aria-hidden="true">
+          <div class="orbit orbit-one"><span class="electron e1"></span><span class="electron e2"></span></div>
+          <div class="orbit orbit-two"><span class="electron e3"></span></div>
+          <div class="nucleus"><span>+</span><span>+</span><span>•</span><span>•</span></div>
+        </div>
+        <div class="atom-copy"><h3 data-i18n="atomParts">سه ذره‌ی مهم</h3>
+          <p><b class="proton">●</b> <strong data-i18n="proton">پروتون:</strong> <span data-i18n="protonDesc">بار مثبت؛ در هسته قرار دارد.</span></p>
+          <p><b class="neutron">●</b> <strong data-i18n="neutron">نوترون:</strong> <span data-i18n="neutronDesc">بدون بار؛ در هسته قرار دارد.</span></p>
+          <p><b class="electron">●</b> <strong data-i18n="electron">الکترون:</strong> <span data-i18n="electronDesc">بار منفی؛ در ناحیه اطراف هسته حضور دارد.</span></p>
+          <small data-i18n="atomNote">نمایش اتم در این نسخه شماتیک و آموزشی است و مقیاس واقعی را نشان نمی‌دهد.</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="quizPanel" class="panel">
+      <div class="section-heading"><div><span class="kicker" data-i18n="challenge">خودت را بسنج</span><h2 data-i18n="quizTitle">آزمون سریع</h2></div><span class="counter" id="quizProgress">1 / 5</span></div>
+      <div class="quiz-card">
+        <div class="quiz-top"><span class="quiz-icon">✦</span><span data-i18n="dailyChallenge">چالش یادگیری</span></div>
+        <h3 id="questionText">نماد شیمیایی اکسیژن چیست؟</h3>
+        <div id="answerOptions" class="answer-options"></div>
+        <div id="quizFeedback" class="feedback" aria-live="polite"></div>
+        <button id="nextQuestion" class="primary-btn wide" type="button" disabled data-i18n="next">سؤال بعدی ←</button>
+      </div>
+    </section>
+  </main>
+
+  <footer><span class="brand-mini">ELEMENT <em>X</em></span><span data-i18n="footer">یادگیری شیمی، یک عنصر در هر بار.</span><span class="footer-note">Beta 0.2</span></footer>
+
+  <dialog id="elementDialog" class="element-dialog">
+    <button id="closeDialog" class="close-btn" aria-label="بستن">×</button>
+    <div id="elementDetail"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

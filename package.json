@@ -1,0 +1,21 @@
+{
+  "name": "element-x",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ELEMENT X — Persian/English interactive periodic table and chemistry learning app",
+  "scripts": {
+    "start": "npx http-server www -p 8080",
+    "android:add": "npx cap add android",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android",
+    "android:build:debug": "npm run android:sync && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "http-server": "^14.1.1"
+  }
+}
